@@ -19,6 +19,7 @@ public class LeapYearChecker extends JFrame{
 
                 try {
                     long year = Long.parseLong(tfYear.getText());
+                    if(year < 0) throw new NumberFormatException();
 
                     System.out.println(year);
 

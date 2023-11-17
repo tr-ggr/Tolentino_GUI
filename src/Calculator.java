@@ -16,24 +16,30 @@ public class Calculator extends JFrame{
         btnCompute.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String operator = (String) cbOperations.getSelectedItem();
-                double num1 = Integer.parseInt(tfNumber1.getText());
-                double num2 = Integer.parseInt(tfNumber2.getText());
+                try{
+                    String operator = (String) cbOperations.getSelectedItem();
+                    double num1 = Integer.parseInt(tfNumber1.getText());
+                    double num2 = Integer.parseInt(tfNumber2.getText());
 
-                switch(operator){
-                    case "+":
-                        lblResult.setText(String.format("%.2f", num1+num2));
-                        break;
-                    case "-":
-                        lblResult.setText(String.format("%.2f", num1-num2));
-                        break;
-                    case "/":
-                        lblResult.setText(String.format("%.2f", num1/num2));
-                        break;
-                    case "*":
-                        lblResult.setText(String.format("%.2f", num1*num2));
-                        break;
+                    switch(operator){
+                        case "+":
+                            lblResult.setText(String.format("%.2f", num1+num2));
+                            break;
+                        case "-":
+                            lblResult.setText(String.format("%.2f", num1-num2));
+                            break;
+                        case "/":
+                            if(num2 == 0) throw new Exception();
+                            lblResult.setText(String.format("%.2f", num1/num2));
+                            break;
+                        case "*":
+                            lblResult.setText(String.format("%.2f", num1*num2));
+                            break;
+                    }
+                }catch (Exception a){
+                    JOptionPane.showMessageDialog(null, "Enter a valid number!");
                 }
+
             }
         });
     }
