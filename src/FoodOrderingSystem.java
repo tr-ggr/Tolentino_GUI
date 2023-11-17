@@ -20,10 +20,11 @@ public class FoodOrderingSystem extends JFrame {
 
         setContentPane(panel);
         btnOrder.addActionListener(new ActionListener() {
-            int sum = 0;
-            double discount = 0;
+
             @Override
             public void actionPerformed(ActionEvent e) {
+                int sum = 0;
+                double discount = 0;
                 if(cPizza.isSelected()) sum += 100;
                 if(cBurger.isSelected()) sum += 80;
                 if(cFries.isSelected()) sum += 65;

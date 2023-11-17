@@ -17,21 +17,21 @@ public class Calculator extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 String operator = (String) cbOperations.getSelectedItem();
-                int num1 = Integer.parseInt(tfNumber1.getText());
-                int num2 = Integer.parseInt(tfNumber2.getText());
+                double num1 = Integer.parseInt(tfNumber1.getText());
+                double num2 = Integer.parseInt(tfNumber2.getText());
 
                 switch(operator){
                     case "+":
-                        lblResult.setText(String.format("%d", num1+num2));
+                        lblResult.setText(String.format("%.2f", num1+num2));
                         break;
                     case "-":
-                        lblResult.setText(String.format("%d", num1-num2));
+                        lblResult.setText(String.format("%.2f", num1-num2));
                         break;
                     case "/":
-                        lblResult.setText(String.format("%d", num1/num2));
+                        lblResult.setText(String.format("%.2f", num1/num2));
                         break;
                     case "*":
-                        lblResult.setText(String.format("%d", num1*num2));
+                        lblResult.setText(String.format("%.2f", num1*num2));
                         break;
                 }
             }

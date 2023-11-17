@@ -10,29 +10,40 @@ public class LeapYearChecker extends JFrame{
     private JLabel InputYear;
     private JPanel panel;
 
-    public LeapYearChecker(){
+    public LeapYearChecker() {
         setContentPane(panel);
 
         btnCheckYear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                long year = Long.parseLong(tfYear.getText());
 
-                if(isLeap(year) == true){
-                    JOptionPane.showMessageDialog(null, "Leap year");
-                } else {
-                    JOptionPane.showMessageDialog(null, "Not a leap year");
+                try {
+                    long year = Long.parseLong(tfYear.getText());
+
+                    System.out.println(year);
+
+                    //                if(year) JOptionPane.showMessageDialog(null, "Enter a valid number!");
+
+                    if (isLeap(year) == true) {
+                        JOptionPane.showMessageDialog(null, "Leap year");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Not a leap year");
+                    }
+
+                } catch (NumberFormatException nfe) {
+                    JOptionPane.showMessageDialog(null, "Enter a valid number!");
+
                 }
             }
         });
     }
 
-    public static void main(String[] args) {
-        LeapYearChecker app = new LeapYearChecker();
+        public static void main(String[]args){
+            LeapYearChecker app = new LeapYearChecker();
 
-        app.setSize(1000, 600);
-        app.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        app.setTitle("Leap Year Checker");
-        app.setVisible(true);
-    }
+            app.setSize(1000, 600);
+            app.setDefaultCloseOperation(EXIT_ON_CLOSE);
+            app.setTitle("Leap Year Checker");
+            app.setVisible(true);
+        }
 }
